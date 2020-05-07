@@ -1,0 +1,962 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data" id="tssform" onsubmit="return sitevalidate()">
+  {% csrf_token %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Technical Site Survey(TSS) Entry (Edit / Update)</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active">TSS Entry</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Site Basic Info</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-warning" data-card-widget="collapse"><strong><i
+                        class="fas fa-minus" style="color:#FFF;"></i></strong></button>
+
+                </div>
+              </div>
+              <!-- /.card-header -->
+              
+
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="site id">Site ID<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.site.site_id}}</u></b></span>
+                  <span id="errsitid" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label for="site name">Site Name<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.site.site_name}}</u></b></span>
+                  <span id="errstnm" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label for="survay date">Survay Date<font color="red">*</font></label><br>
+                  <span><b><u>{{ sitevisit.visited|date:"d/m/Y" }}</u></b></span>
+                </div>
+                <div class="form-group">
+                  <label for="survay time">Survay Time<font color="red">*</font></label><br>
+                  <span><b><u>{{ sitevisit.visited|date:"h:i A" }}</u></b></span>
+                </div>
+                <div class="form-group">
+                  <label for="site region">Site Region<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.site.site_region}}</u></b></span>
+                  <span id="errregn" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label for="coordinate">Site Coordinate<font color="red">*</font></label><br>
+                  <span><b>Latitude: <u>{{sitevisit.site.site_latitude}}</u></b></span><br>
+                  <span><b>Longitude: <u>{{sitevisit.site.site_longitude}}</u></b></span>
+                </div>
+                <div class="form-group">
+                  <label for="contractor">Contractor<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.contract.contractor}}</u></b></span>
+                  <span id="errcontrcnm" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label for="names of contractor rep">Names of Contractor Rep<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.contract.contractor_rep}}</u></b></span>
+                  <span id="errcontcrep" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contact of contractor rep">Contact of Contractor Rep<font color="red">*</font></label><br>
+                  <span><b><u>{{sitevisit.contract.contact_contractor_rep}}</u></b></span>
+                  <span id="errcontcrepno" class="text-danger font-weight-bold"></span>
+                </div>
+
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Enter Site Details here: </h3>
+              </div>
+            
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div id="accordion">
+                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                          1. Site Information
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="card-body">
+                        <div class="form2">
+                          <div class="group-input">
+                            <label>1. DC System on site?</label><br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                {% if sitevisit.details.dc_system_on_site == True %}
+                                <span><b><u>Yes</u></b></span>
+                                {% else %}
+                                <span><b><u>No</u></b></span>
+                                {% endif %}
+                              </div>
+                              <div class="col-md-4">
+                                <button class="btn btn-primary">Edit</button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="icheck-primary d-inline">
+                                  <input type="radio" id="Yes1" name="dc_system_on_site" value="1" >
+                                  <label for="Yes1">
+                                    Yes
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="icheck-primary d-inline">
+                                  <input type="radio" id="No1" name="dc_system_on_site" value="0">
+                                  <label for="No1">
+                                    No
+                                  </label><br><br>
+                                </div>
+                                <span id="errdc" class="text-danger font-weight-bold"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="group-input">
+                            <label>2. DC System brand and size</label><br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                
+                                <span><b>Brand: <u>{{sitevisit.details.dc_system_brand}}</u></b></span><br>
+                                
+                                <span><b>Size: <u>{{sitevisit.details.dc_system_size}}</u></b></span>
+                                
+                              </div>
+                              <div class="col-md-4">
+                                <button class="btn btn-primary">Edit</button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <input type="text" class="form-control" name="dc_system_brand"
+                                  list="dc_system_brand_list" placeholder="Select brand; For others please specify" id="Emerson">
+                                <datalist id="dc_system_brand_list">
+                                  <option value="Emerson">
+                                  <option value="Delta">
+                                </datalist>
+                                <span id="erremr" class="text-danger font-weight-bold"></span>
+                              </div>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control" name="dc_system_size" list="dc_system_size_list"
+                                  placeholder="Select size; For others please specify" id="sizetyp">
+                                <datalist id="dc_system_size_list">
+                                  <option value="Single">
+                                  <option value="Dual">
+                                </datalist>
+                                <span id="errdual" class="text-danger font-weight-bold"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="group-input">
+                            <label>3. Is space available inside the DC Cabinet for Solar MPPT Controller to be
+                              installed at the power compartment section</label><br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                {% if sitevisit.details.space_avail_in_dc_cabinet == True %}
+                                <span><b><u>Yes</u></b></span>
+                                {% else %}
+                                <span><b><u>No</u></b></span>
+                                {% endif %}
+                              </div>
+                              <div class="col-md-4">
+                                <button class="btn btn-primary">Edit</button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="icheck-primary d-inline">
+                                  <input type="radio" id="Yes2" name="space_avail_in_dc_cabinet" value="1" >
+                                  <label for="Yes2">
+                                    Yes
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="icheck-primary d-inline">
+                                  <input type="radio" id="No2" name="space_avail_in_dc_cabinet" value="0">
+                                  <label for="No2">
+                                    No
+                                  </label><br><br>
+                                </div>
+                              </div>
+                              <span id="errmppt" class="text-danger font-weight-bold"></span>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>4. Measure and record the available space for the MPPT controller in the DC
+                              cabinet (<em>in Meters</em>)</label>
+                            <div class="row">
+                              <div class="col-md-3">
+                                    
+                                <span><b>Length: <u>{{sitevisit.details.length_dc_cabinet}}</u></b></span><br>
+                                    
+                                <span><b>Height: <u>{{sitevisit.details.height_dc_cabinet}}</u></b></span>
+                                    
+                              </div>
+                              <div class="col-md-4">
+                                <button class="btn btn-primary">Edit</button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <input type="text" class="form-control" name="length_dc_cabinet" placeholder="Length" id="len">
+                                <span id="errhight" class="text-danger font-weight-bold"></span>
+                              </div>
+                              <div class="col-md-4">
+                                <input type="text" class="form-control" name="height_dc_cabinet"
+                                  placeholder="Height" id="hight"><span id="errhight" class="text-danger font-weight-bold"></span><br><br>
+                              </div>
+                            </div>
+                            <div class="group-input">
+                              <label>5. Is there any tall structure, tree or building higher than the site fence
+                                that can cause possible shading?</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.details.tall_structure == True %}
+                                  <span><b><u>Yes</u></b></span>
+                                  {% else %}
+                                  <span><b><u>No</u></b></span>
+                                  {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="Yes3" name="tall_structure" value="1" onclick="document.getElementById('a1').disabled = false;document.getElementById('a2').disabled = false;document.getElementById('a3').disabled = false;">
+                                    <label for="Yes3">
+                                      Yes
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="No3" name="tall_structure" value="0" onclick="document.getElementById('a1').disabled = true;document.getElementById('a2').disabled = true;document.getElementById('a3').disabled = true">
+                                    <label for="No3">
+                                      No
+                                    </label><br><br>
+                                  </div>
+                                  <span id="errstrct" class="text-danger font-weight-bold"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>5.1. If Yes indicate or name the Structure type(s)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                        
+                                  <span><b><u>{{sitevisit.details.tall_structure_name}}</u></b></span><br>
+                                        
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="tall_structure_name"
+                                placeholder="Name all the Structure Type(s)" disabled id="a1"><br><br>
+                                <span id="errstrct1" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                              <label>5.2. Height of Structure AGL</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.details.tall_structure_distance_fence == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.details.tall_structure_height}}</u></b></span><br>
+                                  {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="tall_structure_height"
+                                placeholder="Height of Structure" disabled id="a2"><br><br>
+                                <span id="errstrct2" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                              <label>5.3. Distance from Fence</label>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.details.tall_structure_distance_fence == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.details.tall_structure_distance_fence}}</u></b></span><br>
+                                  {% endif %}  
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="tall_structure_distance_fence"
+                                placeholder="Distance of the Structure from Fence" disabled id="a3"><br><br>
+                                <span id="errstrct3" class="text-danger font-weight-bold"></span>
+                            </div>
+                            <div class="form-group">
+                              <label>6. Record distance from Shed leg on which DB will be fix to the DC Cabinet in
+                                meters</label><br>
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    
+                                    <span><b><u>{{sitevisit.details.distance_shed_dc_cabinate}}</u></b></span><br>
+                                    
+                                  </div>
+                                  <div class="col-md-4">
+                                    <button class="btn btn-primary">Edit</button>
+                                  </div>
+                                </div>
+                              <input type="text" class="form-control" name="distance_shed_dc_cabinate"
+                                placeholder="Distance from Shed leg on which DB will be fix to the DC Cabinet" id="recdis">
+                                <span id="errrecdis" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>7. Any comment:</label>
+                              <textarea name="comment" placeholder="Enter your Comments here"
+                                class="form-control"></textarea><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                                  class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                                  class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card card-orange">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="color:#FFF;">
+                            2. DC Supply parameter
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+                            <div class="form-group">
+                              <label>1. System Voltage in Volt (<em>Measured between +ve and -ve</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                    
+                                  <span><b><u>{{sitevisit.dcsupply.system_voltage}}</u></b></span><br>
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="system_voltage"
+                                placeholder="System Voltage" id="dcvolt">
+                                <span id="errdcvolt" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2. Load Current_1 in Ampere (<em>Measured on -ve cable</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                      
+                                  <span><b><u>{{sitevisit.dcsupply.load_current_1}}</u></b></span><br>
+                                      
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="load_current_1"
+                                placeholder="Load Current_1" id="ldcurr">
+                                <span id="errldcurr" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3. Load Current_2 in Ampere (<em>Measured on -ve cable</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.dcsupply.load_current_2 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dcsupply.load_current_2}}</u></b></span><br>
+                                  {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="load_current_2"
+                                placeholder="Load Current_2"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4. Load Current_3 in Ampere (<em>Measured on -ve cable</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                      
+                                  {% if sitevisit.dcsupply.load_current_3 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dcsupply.load_current_3}}</u></b></span><br>
+                                  {% endif %}
+                                      
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="load_current_3"
+                                placeholder="Load Current_3"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>5. Load Current_4 in Ampere (<em>Measured on -ve cable</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                      
+                                  {% if sitevisit.dcsupply.load_current_4 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dcsupply.load_current_4}}</u></b></span><br>
+                                  {% endif %}
+                                      
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="load_current_4"
+                                placeholder="Load Current_4"><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                  class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                  class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-info">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            3. Site Dimension Detail
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+
+                            <div class="form-group">
+                              <h4><b>1. Site Dimension</b></h4>
+                              <label>1.1. Front side (Gate side) (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                      
+                                  <span><b><u>{{sitevisit.dimension.front_side}}</u></b></span><br>
+                                      
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="front_side" placeholder="Front side" id="stfs"><span id="errfs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>1.2. Right Side (When facing the gate from outside the site) (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                            
+                                      <span><b><u>{{sitevisit.dimension.right_side}}</u></b></span><br>
+                                            
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="right_side" placeholder="Right Side" id="strs">
+                              <span id="errrs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>1.3. Back Side (opposite the gate side) (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                          
+                                  <span><b><u>{{sitevisit.dimension.back_side}}</u></b></span><br>
+                                          
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="back_side" placeholder="Back Side" id="stbs"><span id="errbs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>1.4. Left Side (When facing the gate from outside the site) (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                                
+                                      <span><b><u>{{sitevisit.dimension.left_side}}</u></b></span><br>
+                                                
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="left_side" placeholder="Left Side" id="stls"><span id="errls" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+                            <div class="form-group">
+                              <h4><b>2. Available space around the tower</b></h4>
+                              <label>2.1. Distance from tower Leg/face or monopole to front side of fence (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                                  
+                                      <span><b><u>{{sitevisit.dimension.distance_tower_front}}</u></b></span><br>
+                                                  
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="distance_tower_front"
+                                placeholder="Distance from tower Leg/face or monopole to front side of fence" id="twrfs"><span id="errtfs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2.2. Distance from tower Leg/face or monopole to Right side of fence (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                                  
+                                      <span><b><u>{{sitevisit.dimension.distance_tower_right}}</u></b></span><br>
+                                                  
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="distance_tower_right"
+                                placeholder="Distance from tower Leg/face or monopole to Right side of fence" id="twrrs"><span id="errrs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2.3. Distance from tower Leg/face or monopole to Back side of fence (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                                  
+                                      <span><b><u>{{sitevisit.dimension.distance_tower_back}}</u></b></span><br>
+                                                  
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="distance_tower_back"
+                                placeholder="Distance from tower Leg/face or monopole to Back side of fence" id="twrbs"><span id="errtbs" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2.4. Distance from tower Leg/face or monopole to Left side of fence (<em>in
+                                  Meters</em>)</label><br>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                                  
+                                      <span><b><u>{{sitevisit.dimension.distance_tower_left}}</u></b></span><br>
+                                                  
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-primary">Edit</button>
+                                    </div>
+                                  </div>
+                              <input type="text" class="form-control" name="distance_tower_left"
+                                placeholder="Distance from tower Leg/face or monopole to Left side of fence" id="twrls"><span id="errtls" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+
+                            <div class="form-group">
+                              <h4><b>3. Propose location for Solar shed (Option_1)</b></h4>
+                              <h6>(<em>It's recommended this field must be completed only after sketching and
+                                  plotting the shades for sketch 3</em>)</h6>
+                              <label>3.1. Length of Side_A (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                                
+                                  <span><b><u>{{sitevisit.dimension.length_side_A_option_1}}</u></b></span><br>
+                                                
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_A_option_1"
+                                placeholder="Length of Side_A" id="opta"><span id="errssa" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3.2. Length of Side_B (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                                
+                                  <span><b><u>{{sitevisit.dimension.length_side_B_option_1}}</u></b></span><br>
+                                                
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_B_option_1"
+                                placeholder="Length of Side_B" id="optb"><span id="errssb" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3.3. Length of Side_C (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                                
+                                  <span><b><u>{{sitevisit.dimension.length_side_C_option_1}}</u></b></span><br>
+                                                
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_C_option_1"
+                                placeholder="Length of Side_C" id="optc"><span id="errssc" class="text-danger font-weight-bold"></span><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3.4. Length of Side_D (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                                
+                                  <span><b><u>{{sitevisit.dimension.length_side_D_option_1}}</u></b></span><br>
+                                                
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_D_option_1"
+                                placeholder="Length of Side_D" id="optd"><span id="errssd" class="text-danger font-weight-bold"></span><br><br>
+                            </div>
+
+                            <div class="form-group">
+                              <h4><b>4. Propose location for Solar shed (Option_2)</b></h4>
+                              <h6>(<em>It's recommended this field must be completed only after sketching and
+                                  plotting the shades for sketch 3</em>)</h6>
+                              <label>4.1. Length of Side_A (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.dimension.length_side_A_option_2 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dimension.length_side_A_option_2}}</u></b></span><br>
+                                  {% endif %}       
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_A_option_2"
+                                placeholder="Length of Side_A"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4.2. Length of Side_B (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.dimension.length_side_B_option_2 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dimension.length_side_B_option_2}}</u></b></span><br>
+                                  {% endif %}       
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_B_option_2"
+                                placeholder="Length of Side_B"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4.3. Length of Side_C (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.dimension.length_side_C_option_2 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dimension.length_side_C_option_2}}</u></b></span><br>
+                                  {% endif %}       
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_C_option_2"
+                                placeholder="Length of Side_C"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4.4. Length of Side_D (<em>in Meters</em>)</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  {% if sitevisit.dimension.length_side_D_option_2 == None %}
+                                  <span></span><br>
+                                  {% else %}
+                                  <span><b><u>{{sitevisit.dimension.length_side_D_option_2}}</u></b></span><br>
+                                  {% endif %}       
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-primary">Edit</button>
+                                </div>
+                              </div>
+                              <input type="text" class="form-control" name="length_side_D_option_2"
+                                placeholder="Length of Side_D"><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                  class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                  class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div><br>
+                      <div class="card card-warning">
+                        <div class="card-header">
+                          <h4 class="card-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                              4. Geographical information
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                          <div class="card-body">
+                            <div class="form2">
+                              <div class="form-group">
+                                <label>1. Sketch block diagram of site layout</label><br>
+                                
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <img src="{{sitevisit.geography.sketch_1.url}}" height="400" width="400" />
+                                  </div>
+                                  <div class="col-md-4">
+                                    <button class="btn btn-danger">Remove & Add Another</button>
+                                  </div>
+                                </div>
+                                <input type="file" id="sitelayout" name="sketch_1" >
+                                <span id="errlay" class="text-danger font-weight-bold"></span><br>
+                              </div>
+                              <div class="form-group">
+                                <label>2. Site tower and its shade at every 20 minutes for 2 hours Plot</label><br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <img src="{{sitevisit.geography.sketch_2.url}}" height="400" width="400" />
+                                  </div>
+                                  <div class="col-md-4">
+                                    <button class="btn btn-danger">Remove & Add Another</button>
+                                  </div>
+                                </div>
+                                <input type="file" id="imgshd" name="sketch_2" >
+                                <span id="errshd" class="text-danger font-weight-bold"></span><br>
+                              </div>
+                              <div class="form-group">
+                                <label>3. Your prefered PV shed location on the site sketch</label><br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <img src="{{sitevisit.geography.sketch_3.url}}" height="400" width="400" />
+                                  </div>
+                                  <div class="col-md-4">
+                                    <button class="btn btn-danger">Remove & Add Another</button>
+                                  </div>
+                                </div>
+                                <input type="file" id="pvsketch" name="sketch_3" >
+                                <span id="errpv" class="text-danger font-weight-bold"></span><br>
+                              </div>
+                              <div class="form-group">
+                                <label>4. Locality map ofthe location indicating available roads and any major land
+                                  marks sketch</label><br>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                      <img src="{{sitevisit.geography.sketch_4.url}}" height="400" width="400" />
+                                    </div>
+                                    <div class="col-md-4">
+                                      <button class="btn btn-danger">Remove & Add Another</button>
+                                    </div>
+                                  </div>
+                                <input type="file" id="mapsketch" name="sketch_4" ><span id="errmpskt" class="text-danger font-weight-bold"></span><br><br>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"
+                                    class="next"><b>Next &raquo;</b></a>
+                                </div>
+                                <div class="col-md-4">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"
+                                    class="skip"><b>Skip &raquo; &raquo;</b></a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-success">
+                        <div class="card-header">
+                          <h4 class="card-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                              5. Supporting images
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                          <div class="card-body">
+                            <div class="form2">
+                              {% for extra_img in extra_imgs %}
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <b><u>{{extra_img.supporting_images_caption}}</u>:</b><br>
+                                  <img src="{{extra_img.supporting_images.url}}" height="400" width="400" />
+                                </div>
+                                <div class="col-md-4">
+                                  <button class="btn btn-danger">Remove Image & Caption</button>
+                                </div>
+                              </div><br>
+                              {% endfor %}
+                              <input type="number" name="supportingImagesNumber" value="0" id="supportingImagesNumber"
+                                hidden required>
+                              <button type="button" class="btn btn-primary" id="supportingImagesAdd"><b>Add More Images
+                                  +</b></button>
+                              <button type="button" class="btn btn-danger" id="supportingImagesRem" hidden><b>Remove
+                                  Last
+                                  Image and Caption -</b></button>
+                              <div class="form-group" id="supportingImagesElement">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <button type="button" class="preview-btn"><b>Preview Submission</b></button>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="submit" class="changepassword-submit-btn"><b>Submit Response</b></button>
+                    </div>
+                  </div>
+
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col -->
+              <!-- /.col -->
+            </div>
+          </div>
+    </section>
+    <!-- /. Main content Ends here-->
+  </div>
+  <!-- /.content-wrapper -->
+</form>
+
+<!-- Validation for TSS_Entry details -->
+<script src="{% static 'frontend/dist/js/custom validation.js' %}"></script>
+
+<script>
+
+  const supportingImagesNumber = document.getElementById("supportingImagesNumber");
+  const supportingImagesAdd = document.getElementById("supportingImagesAdd");
+  const supportingImagesElement = document.getElementById("supportingImagesElement");
+  const supportingImagesRem = document.getElementById("supportingImagesRem");
+
+  supportingImagesAdd.addEventListener("click", () => {
+    supportingImagesNumber.value = (Number.parseInt(supportingImagesNumber.value, 10) + 1).toString();
+
+    supportingImagesRem.hidden = false;
+
+    var elem = document.createElement("input");
+    elem.type = "file";
+    elem.required = true;
+    elem.name = "supporting_images_" + supportingImagesNumber.value;
+    supportingImagesElement.appendChild(elem);
+
+    elem = document.createElement("br");
+    supportingImagesElement.appendChild(elem);
+
+    elem = document.createElement("textarea");
+    elem.placeholder = "Enter caption for this image";
+    elem.className = "form-control";
+    elem.name = "supporting_images_caption_" + supportingImagesNumber.value;
+    elem.required = true;
+    supportingImagesElement.appendChild(elem);
+
+    elem = document.createElement("br");
+    supportingImagesElement.appendChild(elem);
+
+    elem = document.createElement("br");
+    supportingImagesElement.appendChild(elem);
+  });
+
+  supportingImagesRem.addEventListener("click", () => {
+    supportingImagesElement.removeChild(supportingImagesElement.lastChild);
+    supportingImagesElement.removeChild(supportingImagesElement.lastChild);
+    supportingImagesElement.removeChild(supportingImagesElement.lastChild);
+    supportingImagesElement.removeChild(supportingImagesElement.lastChild);
+    supportingImagesElement.removeChild(supportingImagesElement.lastChild);
+
+    supportingImagesNumber.value = (Number.parseInt(supportingImagesNumber.value, 10) - 1).toString();
+
+    if (supportingImagesNumber.value === "0") {
+      supportingImagesRem.hidden = true;
+    }
+  });
+</script>
+
+
+{% if error %}
+<script>
+  alert("{{ error }}");
+</script>
+{% endif %}
+
+{% endblock %}

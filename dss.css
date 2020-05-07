@@ -1,0 +1,30 @@
+.main_div {
+    font-family: Calibri;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.border_div {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+thead,
+th {
+    border: 1px;
+    border-color: #e0dcdc;
+    background-color: #e0dcdc;
+    padding: 10px;
+}
+

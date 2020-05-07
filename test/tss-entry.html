@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>I-Smart | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Form style -->
+  <link rel="stylesheet" href="dist/css/formstyle.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image" href="dist/img/AdminLTELogo.png">
+</head>
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    
+
+    <!-- Right navbar links -->
+
+  </nav>
+  <!-- /.navbar -->
+
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="index.html" class="brand-link">
+    <img src="dist/img/AdminLTELogo.png" alt="ismart Logo" class="brand-image img-circle elevation-3"
+    style="opacity: .8">
+    <!-- <i class="fal fa-file-chart-pie"></i> -->    <span class="brand-text font-weight-light">I-Smart</span>
+  </a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">Username</a>
+      </div>
+    </div>
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              
+            </p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              TSS
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="tss-entry.html" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>TSS Entry</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="tss-view.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>TSS View</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+        
+        <li class="nav-header d-flex"></li>
+        <li class="nav-item">
+          <a href="changepassword.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p class="text">Change Password</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="login.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-danger"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="contactadmin.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-info"></i>
+            <p>Contact Administrator</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Technical Site Survey(TSS) Entry</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active">TSS Entry</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+         <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Site Basic Info</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-warning" data-card-widget="collapse"><strong><i class="fas fa-minus" style="color:#FFF;"></i></strong></button>
+                  
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <!-- <div class="form2"> -->
+               <!--  <form role="form" action="#" method="post"> -->
+                  <!-- {% csrf_token %} -->
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="site id">Site ID<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="site id" placeholder="Enter Site ID" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="site name">Site Name<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="site name" placeholder="Enter Site Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="survay date">Survay Date<font color="red">*</font></label>
+                      <input type="date" id="survay date" name="survay date"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="survay time">Survay Time<font color="red">*</font></label>
+                      <input type="time" id="survay time" name="survay time"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="site region">Site Region<font color="red">*</font></label>
+                      <select  name="site region" required>
+                      <option value="region1">Region 1</option>
+                      <option value="region2">Region 2</option>
+                      <option value="region3">Region 3</option>
+                      <option value="region4">Region 4</option>
+                      <option value="region5">Region 5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="coordinate">Site Coordinate<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="latitude" placeholder="Enter Latitude" required>
+                      <input type="text" class="form-control" name="longitude" placeholder="Enter Longitude" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="contractor">Contractor<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="contractor" placeholder="Enter Contractor Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="names of contractor rep">Names of Contractor Rep<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="names of contractor rep" placeholder="Enter Contractor Rep. Names" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="contact of contractor rep">Contact of Contractor Rep<font color="red">*</font></label>
+                      <input type="text" class="form-control" name="contact of contractor rep" placeholder="Enter Contractor Rep. Contact" required>
+                    </div>
+                    
+                  </div>
+                  <!-- /.card-body -->
+
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                <!-- </form>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Enter Site Details here: </h3>
+              </div>
+              <form action="#" method="post">
+                <!-- {% csrf_token %} -->
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div id="accordion">
+                    <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            1. Site Information 
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="card-body">
+                          <div class="form2">
+                            <div class="group-input">
+                              <label>1. DC System on site?</label><br>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="Yes1" name="system on site" value="Yes">
+                                    <label for="Yes1">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  
+                                </div>
+                                <div class="col-md-4">
+                                  
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="No1" name="system on site" value="No">
+                                    <label for="No1">
+                                      No
+                                    </label><br><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="group-input">
+                              <label>2. DC System brand and size</label><br>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Emerson" name="system brand and size" value="Emerson">
+                                <label for="Emerson">
+                                Emerson
+                                </label>
+                                </div>
+                                  
+                                </div>
+                                <div class="col-md-3">
+                                <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Single" name="system brand and size" value="Single">
+                                <label for="Single">
+                                Single
+                                </label>
+                                </div>
+                                  
+                                </div>  
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Delta" name="system brand and size" value="Delta">
+                                <label for="Delta">
+                                Delta
+                                </label><br>
+                                </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Dual" name="system brand and size" value="Dual">
+                                <label for="Dual">
+                                Dual
+                                </label><br><br>
+                                </div>
+                                </div>  
+                              </div>
+
+                            </div>
+                            <div class="group-input">
+                              <label>3. Is space available inside the DC Cabinet for Solar MPPT Controller to be installed at the power compartment section</label><br>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="Yes2" name="space for solar" value="Yes">
+                                    <label for="Yes2">
+                                    Yes
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="No2" name="space for solar" value="No">
+                                    <label for="No2">
+                                    No
+                                    </label><br><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>4. Measure and record the available space for the MPPT controller in the DC cabinet (<em>in Meters</em>)</label>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <input type="text" class="form-control" name="length" placeholder="Length" required>
+                                </div>
+                                <div class="col-md-4">
+                                  <input type="text" class="form-control" name="height" placeholder="Height" required><br><br>
+                                </div>
+                            </div>
+                            <div class="group-input">
+                              <label>5. Is there any tall structure, tree or building higher than the site fence that can cause possible shading?</label><br>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="Yes3" name="shade possibility" value="Yes">
+                                    <label for="Yes3">
+                                    Yes
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="icheck-primary d-inline">
+                                    <input type="radio" id="No3" name="shade possibility" value="No">
+                                    <label for="No3">
+                                    No
+                                    </label><br><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>5.1. If Yes indicate or name the Structure type(s)</label>
+                              <input type="text" class="form-control" name="structure type" placeholder="Name all the Structure Type(s)" ><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>5.2. Height of Structure AGL</label>
+                              <input type="text" class="form-control" name="structure height" placeholder="Height of Structure" ><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>5.3. Distance from Fence</label>
+                              <input type="text" class="form-control" name="structure distance" placeholder="Distance of the Structure from Fence" ><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>6. Record distance from Shed leg on which DB will be fix to the DC Cabinet in meters</label>
+                              <input type="text" class="form-control" name="distance to cabinate" placeholder="Distance from Shed leg on which DB will be fix to the DC Cabinet" required><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>7. Any comment:</label>
+                              <textarea name="site info comment" placeholder="Enter your Comments here" class="form-control" ></textarea><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card card-orange">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="color:#FFF;">
+                            2. DC Supply parameter 
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+                            <div class="form-group">
+                              <label>1. System Voltage in Volt (<em>Measured between +ve and -ve</em>)</label>
+                              <input type="text" class="form-control" name="system volt" placeholder="System Voltage"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2. Load Current_1 in Ampere (<em>Measured on -ve cable</em>)</label>
+                              <input type="text" class="form-control" name="load current 1" placeholder="Load Current_1"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3. Load Current_2 in Ampere (<em>Measured on -ve cable</em>)</label>
+                              <input type="text" class="form-control" name="load current 2" placeholder="Load Current_2"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4. Load Current_3 in Ampere (<em>Measured on -ve cable</em>)</label>
+                              <input type="text" class="form-control" name="load current 3" placeholder="Load Current_3"><br><br>
+                            </div>
+                            <div class="form-group">
+                              <label>5. Load Current_4 in Ampere (<em>Measured on -ve cable</em>)</label>
+                              <input type="text" class="form-control" name="load current 4" placeholder="Load Current_4"><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-info">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            3. Site Dimension Detail 
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+                          
+                          <div class="form-group">
+                            <h4><b>1. Site Dimension</b></h4>
+                            <label>1.1. Front side (Gate side) (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="front" placeholder="Front side"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>1.2. Right Side (When facing the gate from outside the site) (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="right side" placeholder="Right Side"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>1.3. Back Side (opposite the gate side) (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="back" placeholder="Back Side"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>1.4. Left Side (When facing the gate from outside the site) (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="left side" placeholder="Left Side"><br><br>
+                          </div>
+                          
+                          <div class="form-group">
+                            <h4><b>2. Available space around the tower</b></h4>
+                            <label>2.1. Distance from tower Leg/face or monopole to front side of fence (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="front distance" placeholder="Distance from tower Leg/face or monopole to front side of fence"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>2.2. Distance from tower Leg/face or monopole to Right side of fence (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="right distance" placeholder="Distance from tower Leg/face or monopole to Right side of fence"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>2.3. Distance from tower Leg/face or monopole to Back side of fence (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="back distance" placeholder="Distance from tower Leg/face or monopole to Back side of fence"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>2.4. Distance from tower Leg/face or monopole to Left side of fence (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="left distance" placeholder="Distance from tower Leg/face or monopole to Left side of fence"><br><br>
+                          </div>
+                          
+                          <div class="form-group">
+                            <h4><b>3. Propose location for Solar shed (Option_1)</b></h4>
+                            <h6>(<em>It's recommended this field must be completed only after sketching and plotting the shades for sketch 3</em>)</h6>
+                            <label>3.1. Length of Side_A (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len A1" placeholder="Length of Side_A"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>3.2. Length of Side_B (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len B1" placeholder="Length of Side_B"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>3.3. Length of Side_C (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len C1" placeholder="Length of Side_C"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>3.4. Length of Side_D (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len D1" placeholder="Length of Side_D"><br><br>
+                          </div>
+                          
+                          <div class="form-group">
+                            <h4><b>4. Propose location for Solar shed (Option_2)</b></h4>
+                            <h6>(<em>It's recommended this field must be completed only after sketching and plotting the shades for sketch 3</em>)</h6>
+                            <label>4.1. Length of Side_A (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len A2" placeholder="Length of Side_A"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>4.2. Length of Side_B (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len B2" placeholder="Length of Side_B"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>4.3. Length of Side_C (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len C2" placeholder="Length of Side_C"><br>
+                          </div>
+                          <div class="form-group">
+                            <label>4.4. Length of Side_D (<em>in Meters</em>)</label>
+                            <input type="text" class="form-control" name="len D2" placeholder="Length of Side_D"><br><br>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="next"><b>Next &raquo;</b></a>
+                            </div>
+                            <div class="col-md-4">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="skip"><b>Skip &raquo; &raquo;</b></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card card-warning">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                            4. Geographical information 
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+                            <div class="form-group">
+                              <label>1. Sketch block diagram of site layout</label>
+                              <input type="file" id="site layout" name="site layout"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2. Site tower and its shade at every 20 minutes for 2 hours Plot</label>
+                              <input type="file" id="site shade sketch" name="site shade sketch"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3. Your prefered PV shed location on the site sketch</label>
+                              <input type="file" id="site pv location sketch" name="site pv location sketch"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4. Locality map ofthe location indicating available roads and any major land marks sketch</label>
+                              <input type="file" id="site map sketch" name="site map sketch"><br><br>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="next"><b>Next &raquo;</b></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="skip"><b>Skip &raquo; &raquo;</b></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-success">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                            5. Supporting images 
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="card-body">
+                          <div class="form2">
+                            <div class="form-group">
+                              <label>1. Site Signage</label>
+                              <input type="file" id="site Signage" name="site Signage"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>2. Image of all 4 sides around the tower which were recorded as Option_1 and or 2</label>
+                              <input type="file" id="op1 side1" name="op1 side1"><br>
+                              <input type="file" id="op1 side2" name="op1 side2"><br>
+                              <input type="file" id="op1 side3" name="op1 side3"><br>
+                              <input type="file" id="op1 side4" name="op1 side4"><br>
+                              <button type="add more" class="btn btn-primary"><b>Add More (<em>for Option_2</em>) +</b></button>
+                              <input type="file" id="op2 side1" name="op2 side1"><br>
+                              <input type="file" id="op2 side2" name="op2 side2"><br>
+                              <input type="file" id="op2 side3" name="op2 side3"><br>
+                              <input type="file" id="op2 side4" name="op2 side4"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>3. Image of power compartment of DC system where Solar MPPT will be fix</label>
+                              <input type="file" id="solar compartment" name="solar compartment"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>4. Complete site view from a distance to capture the full tower on site</label>
+                              <input type="file" id="site distance view" name="site distance view"><br>
+                            </div>
+                            <div class="form-group">
+                              <label>5. Google map view of the site and indicate the position of the site gate on the map</label>
+                              <input type="file" id="site map view" name="site map view"><br>
+                            </div>
+                            <button type="add more" class="btn btn-primary"><b>Add More Images +</b></button>
+                            <div class="form-group">
+                              <label># Extra Image</label>
+                              <input type="file" id="extra image" name="extra image"><br><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <button type="preview" class="preview-btn"><b>Preview Submission</b></button>
+                  </div>
+                  <div class="col-md-4">
+                    <button type="submit" class="changepassword-submit-btn"><b>Submit Response</b></button>
+                  </div>
+                </div>
+              </form>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <!-- /.col -->
+        </div>
+      </div>
+    </section>    
+
+
+
+    <!-- /. Main content Ends here-->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="">ismart.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.4
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- DateTime Picker 
+
+Script for DateTime Picker
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>-->
+
+</body>
+</html>
+
+

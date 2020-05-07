@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>I-Smart | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image" href="dist/img/AdminLTELogo.png">
+    <!-- daterange picker -->
+
+    <style type="text/css">
+        .main_div {
+            font-family: Calibri;
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .border_div {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        thead,
+        th {
+            border: 1px;
+            border-color: #e0dcdc;
+            background-color: #e0dcdc;
+            padding: 10px;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-link">
+                <img src="WhatsApp Image 2020-05-07 at 8.54.29 PM.jpeg" alt="ismart Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <!-- <i class="fal fa-file-chart-pie"></i> --> <span class="brand-text font-weight-light"><strong>Ahead-Smart</strong></span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Username</a>
+                    </div>
+                </div>
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+              with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="home_atc_test.html" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="site_analysis.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-line"></i>
+                                <p>
+                                    Site Analysis
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header d-flex"></li>
+                        <li class="nav-item">
+                            <a href="changepassword.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-warning"></i>
+                                <p class="text">Change Password</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contactadmin.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Contact Administrator</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+        <form action="" method="post" enctype="multipart/form-data" id="dssform">
+
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0 text-dark">Design Summary Sheet(DSS) Verify</h1>
+                            </div><!-- /.col -->
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">DSS Verify</li>
+                                </ol>
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content-header -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="main_div">
+                                            <input type="text" name="id" value="" hidden>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Contractor
+                                                        </td>
+                                                        <td>
+                                                            <font color="blue">
+                                                                PARK INFRATEL GHANA LIMITED
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            Site ID
+                                                        </td>
+                                                        <td>
+                                                            <font color="blue">
+                                                                601707
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Site Name
+                                                        </td>
+                                                        <td>
+                                                            <font color="blue">
+                                                                NEW DROBO 3
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            TSS Date
+                                                        </td>
+                                                        <td>
+                                                            <font color="blue">
+                                                                9 th Dec, 2019
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table><br><br>
+                                            <div>
+
+                                                <img src="WhatsApp Image 2020-05-07 at 8.19.44 PM.jpeg" height="400"
+                                                    width="400">
+                                            </div><br><br>
+                                            <div>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Site Load
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    V
+                                                                </font>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Total Design Peak Power (kWp)
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    5.32 kW
+                                                                </font>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table><br><br>
+                                                <table>
+                                                    <thead>
+                                                        <th>Design Parameters</th>
+                                                        <th>Solar Structure_1</th>
+                                                        <th>Solar Structure_2</th>
+                                                        <th>Solar Structure_3</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Size of structure</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    1x7
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    1x7
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quantity of PV modules</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    7   
+                                                                </font>
+
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    7
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rating of PV module</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    380
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    380
+                                                                </font>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No of MPPT required</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    1
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    1
+                                                                </font>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Battery type on site</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    INCELL
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    INCELL
+                                                                </font>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Structure facing towards (Azimuth) </td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    W
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    S
+                                                                </font>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Structure Angle Tilt (⁰)</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    10
+                                                                </font>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    10
+                                                                </font>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Potential Shading (Solid object > 3m) include image</td>
+                                                            <td>
+
+                                                                <font color="blue">
+                                                                    10, 8
+                                                                </font><br>
+
+                                                                <font color="blue">
+                                                                    6, 5
+                                                                </font><br>
+
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    8, 8
+                                                                </font><br>
+
+
+                                                                <font color="blue">
+                                                                    3, 9
+                                                                </font><br>
+                                                            </td>
+                                                            <td>
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font><br>
+
+
+                                                                <font color="blue">
+                                                                    NA
+                                                                </font><br>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table><br><br>
+                                                <table>
+                                                    <thead>
+                                                        <th></th>
+                                                        <th>Vetted</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td><span hidden id="signatureText">Elvis Presley</span>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Sign / Date</td>
+                                                            <td> <img style="padding-left: 10px !important;"
+                                                                    id="signatureImage" hidden src="signature.png"
+                                                                    alt="" height="70px"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div><br><br><br>
+
+                                            <div id="approve" hidden>
+                                                <font color="green"><b>This Report is Approved</b></font><br><br>
+                                            </div>
+
+                                            <div id="Notapprove" hidden>
+
+                                                <font color="red"><b>This Report is Not-Approved</b></font><br><br>
+
+                                            </div>
+
+                                            <div id="approvalChecked">
+
+                                                <b>Please Check Your Approval:</b><br><br>
+                                                <div class="row">
+                                                    <div class="col-md-2"></div>
+                                                    <div class="col-md-4">
+                                                        <div class="icheck-primary d-inline">
+                                                            <input type="radio" id="Yes" name="approval" value="1"
+                                                                required>
+                                                            <label for="Yes">
+                                                                Approve
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="icheck-primary d-inline">
+                                                            <input type="radio" id="No" name="approval" value="0">
+                                                            <label for="No">
+                                                                Reject
+                                                            </label><br><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button id="checkedbtn" type="button" class="btn btn-primary">Submit
+                                                    Response</button>
+                                            </div>
+                                            <br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+
+
+
+
+
+
+
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2019 <a href="">ismart.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.4
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- DateTime Picker 
+
+Script for DateTime Picker
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>-->
+
+    <script>
+        const approvalChecked = document.getElementById("approvalChecked");
+        const approve = document.getElementById("approve");
+        const Yes = document.getElementById("Yes");
+        const checkedbtn = document.getElementById("checkedbtn");
+        const No = document.getElementById("No");
+        const Notapprove = document.getElementById("Notapprove");
+        const signatureImage = document.getElementById("signatureImage");
+        const signatureText = document.getElementById("signatureText");
+
+        Yes.addEventListener("change", () => {
+            signatureText.hidden = !signatureImage.hidden;
+            signatureImage.hidden = !signatureImage.hidden;
+        });
+
+        No.addEventListener("change", () => {
+            signatureText.hidden = !signatureImage.hidden;
+            signatureImage.hidden = !signatureImage.hidden;
+        });
+
+        checkedbtn.addEventListener("click", () => {
+            if (Yes.checked || No.checked)
+                setTimeout(function () { alert("Mail sent to \nFred.Darko@AmericanTower.com\nMichael.Ntim@AmericanTower.com\nchary@parkghana.com"); }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
